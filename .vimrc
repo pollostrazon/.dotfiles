@@ -4,6 +4,7 @@ filetype off
 
 " vim-plug plugins
 call plug#begin()
+Plug 'flazz/vim-colorschemes'        " One colorscheme pack to rule them all
 Plug 'tomasr/molokai'                " Molokai color scheme
 Plug 'scrooloose/syntastic'          " Syntax checking hacks for Vim
 Plug 'majutsushi/tagbar'             " Display tags in a window
@@ -18,7 +19,6 @@ Plug 'honza/vim-snippets'            " UltiSnips snippets
 Plug 'mhinz/vim-startify'            " A fancy start screen
 Plug 'tpope/vim-unimpaired'          " Pairs of handy bracket mappings
 Plug 'mattn/emmet-vim'               " Emmet for vim (html hacks, ...)
-Plug 'alvan/vim-closetag'            " Auto close (X)HTML tags
 Plug 'ap/vim-css-color'              " Preview colours in source code
 Plug 'vim-scripts/LanguageTool',     { 'on':  'LanguageToolCheck' }  " Grammar checker in vim
 Plug 'scrooloose/nerdtree',          { 'on':  'NERDTreeToggle' }     " A tree explorer plugin
@@ -30,9 +30,6 @@ call plug#end()
 
 " Syntax highlight
 syntax enable
-
-" Enable 256 colors
-set t_Co=256
 
 " Show line number
 set number
@@ -78,9 +75,10 @@ let g:syntastic_check_on_wq = 0
 nmap <F8> :TagbarToggle<CR>
 
 " Ultisnips settings
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:ultisnips_python_style="numpy"
 
 " vim-airline settings
 set laststatus=2
@@ -114,7 +112,14 @@ nnoremap <leader>f :YcmCompleter FixIt<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 
 " Vim Theme settings
-silent! colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
-highlight Normal ctermbg=NONE
+set t_Co=256
+set background=dark
+colorscheme 256-jungle
+"highlight Normal ctermbg=NONE
+"highlight nonText ctermbg=NONE
+
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    " work properly when Vim is used inside tmux and GNU screen.
+    set t_ut=
+endif
