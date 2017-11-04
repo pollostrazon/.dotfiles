@@ -1,6 +1,7 @@
 " Just because it is the right thing
 set nocompatible
 filetype off
+autocmd! BufRead,BufNewFile *.ino set filetype=c syntax=arduino
 
 " vim-plug plugins
 call plug#begin()
@@ -9,6 +10,7 @@ Plug 'tomasr/molokai'                " Molokai color scheme
 Plug 'scrooloose/syntastic'          " Syntax checking hacks for Vim
 Plug 'majutsushi/tagbar'             " Display tags in a window
 Plug 'SirVer/ultisnips'              " The ultimate snippet solution
+Plug 'sheerun/vim-polyglot'          " A solid language pack for Vim
 Plug 'bling/vim-airline'             " Lean & mean status/tabline
 Plug 'tpope/vim-fugitive'            " An awesome git wrapper
 Plug 'terryma/vim-multiple-cursors'  " Sublime Text style multiple selection
@@ -25,7 +27,7 @@ Plug 'scrooloose/nerdtree',          { 'on':  'NERDTreeToggle' }     " A tree ex
 Plug 'ternjs/tern_for_vim',          { 'for': 'javascript', 'do': 'npm install', 'frozen': 1 }
 Plug 'nvie/vim-flake8',              { 'on': 'Flake8' }              " Flake8 plugin for Vim
 Plug 'rdnetto/YCM-Generator',        { 'branch': 'stable' }          " YouCompleteMe generator
-Plug 'Valloric/YouCompleteMe', { 'for': ['c','cpp','javascript','python'], 'do': './install.py --clang-completer', 'frozen': 1 }
+Plug 'Valloric/YouCompleteMe', { 'for': ['c','cpp','javascript','python', 'ino'], 'do': './install.py --clang-completer', 'frozen': 1 }
 call plug#end()
 
 " Syntax highlight
@@ -41,6 +43,16 @@ set wildmenu
 noremap j gj
 noremap k gk
 set backspace=indent,eol,start
+" ctrl-space quits insert mode and does bad things.
+" Stop that!
+" One way of testing: :^K^space:
+" Other possible ways of saying it: <Nul>, <Char-0>, <C- >, <C-@>
+" p0g on #vim finally found the answer: imap is the important one.
+imap <Nul> <Space>
+map <Nul> <Nop>
+vmap <Nul> <Nop>
+cmap <Nul> <Nop>
+nmap <Nul> <Nop>
 
 " Cursor won't reach first/last line
 set scrolloff=1
@@ -75,6 +87,7 @@ let g:syntastic_check_on_wq = 0
 nmap <F8> :TagbarToggle<CR>
 
 " Ultisnips settings
+set runtimepath+=~/.vim/mySnips/
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -108,6 +121,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command = 'new-or-existing-tab'
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugin/.ycm_extra_conf.py'
 nnoremap <leader>f :YcmCompleter FixIt<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 
