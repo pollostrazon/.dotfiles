@@ -1,0 +1,9 @@
+[core]
+	editor = vim
+
+[user]
+	email = irockpol@gmail.com
+	name = pollostrazon
+
+[gitreview]
+	username = pollostrazon
