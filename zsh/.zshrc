@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="avit"
+ZSH_THEME="bureau"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -96,3 +96,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# java home
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+export PATH=$PATH:$JAVA_HOME/bin
+
+# colours for ls
+export LS_COLORS="$LS_COLORS:ow=1;34;45:"
+
+# default editor
+export EDITOR=vim
+
+# python
+alias python=python3.7
