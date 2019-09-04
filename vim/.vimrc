@@ -1,4 +1,5 @@
 " Just because it is the right thing
+set encoding=UTF-8
 set nocompatible
 filetype off
 autocmd! BufRead,BufNewFile *.ino set filetype=c syntax=arduino
@@ -28,6 +29,7 @@ Plug 'ternjs/tern_for_vim',          { 'for': 'javascript', 'do': 'npm install',
 Plug 'nvie/vim-flake8',              { 'on': 'Flake8' }              " Flake8 plugin for Vim
 Plug 'rdnetto/YCM-Generator',        { 'branch': 'stable' }          " YouCompleteMe generator
 Plug 'Valloric/YouCompleteMe', { 'for': ['c','cpp','javascript','python', 'ino'], 'do': './install.py --clang-completer', 'frozen': 1 }
+Plug 'ryanoasis/vim-devicons'        "Adds file type icons to Vim plugins    
 call plug#end()
 
 " Syntax highlight
