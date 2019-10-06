@@ -114,5 +114,14 @@ export EDITOR=vim
 # intellij
 export PATH=$PATH:/opt/idea-IC-192.6817.14/bin/
 
+# ros
+# needed for bash autocompletion
+autoload bashcompinit
+bashcompinit
+# source basic ros
+source /opt/ros/melodic/setup.bash
+# source external pkg
+source $HOME/catkin_ws/devel/setup.bash
+
 # python
 alias python=python3.7
