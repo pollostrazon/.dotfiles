@@ -128,6 +128,7 @@ nnoremap <leader>f :YcmCompleter FixIt<CR>
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 
 " Vim Theme settings
+set rtp+=/usr/local/lib/python3.7/dist-packages/powerline/bindings/vim/
 set t_Co=256
 set background=dark
 colorscheme 256-jungle

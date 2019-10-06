@@ -96,6 +96,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# powerline fonts
+if [[ -r /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+source /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
+
 # java home
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
 export PATH=$PATH:$JAVA_HOME/bin
@@ -105,6 +110,9 @@ export LS_COLORS="$LS_COLORS:ow=1;34;45:"
 
 # default editor
 export EDITOR=vim
+
+# intellij
+export PATH=$PATH:/opt/idea-IC-192.6817.14/bin/
 
 # python
 alias python=python3.7
