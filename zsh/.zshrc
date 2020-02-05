@@ -64,6 +64,7 @@ ZSH_THEME="bureau"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,9 +117,12 @@ export PATH=$PATH:/opt/idea-IC-192.6817.14/bin/
 
 # ros
 # source basic ros
-source /opt/ros/melodic/setup.zsh
+# source /opt/ros/melodic/setup.zsh
 # source external pkg
-source $HOME/catkin_ws/devel/setup.zsh
+# source $HOME/catkin_ws/devel/setup.zsh
+
+# snap
+export PATH=$PATH:/snap/bin/
 
 # python
 alias python=python3.7
