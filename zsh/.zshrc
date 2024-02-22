@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,9 +112,6 @@ export LS_COLORS="$LS_COLORS:ow=1;34;45:"
 # default editor
 export EDITOR=vim
 
-# intellij
-export PATH=$PATH:/opt/idea-IC-192.6817.14/bin/
-
 # ros
 # source basic ros
 # source /opt/ros/melodic/setup.zsh
@@ -125,4 +122,8 @@ export PATH=$PATH:/opt/idea-IC-192.6817.14/bin/
 export PATH=$PATH:/snap/bin/
 
 # python
-alias python=python3.7
+alias python=python3.12
+alias python3=python3.12
+
+# root
+source root/bin/thisroot.sh
