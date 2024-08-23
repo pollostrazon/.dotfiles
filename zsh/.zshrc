@@ -126,4 +126,9 @@ alias python=python3.12
 alias python3=python3.12
 
 # root
-source root/bin/thisroot.sh
+source /usr/local/src/root/root_install/bin/thisroot.sh
+
+. "$HOME/.cargo/env"
+export GSE_PROJECT=gaps
+export PYTHONPATH=$PYTHONPATH:/home/pollostrazon/bfsw
+export GSE_DB_PATH=127.0.0.1:44555
